@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Margret School | Excellence, Integrity & Community</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1e3a8a',
+                            900: '#0f2354',
+                            950: '#081433',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-pattern {
+            background-color: #081433;
+            background-image: radial-gradient(#1e3a8a 1px, transparent 1px), radial-gradient(#1e3a8a 1px, #081433 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-gold-400 selection:text-navy-950">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-navy-950 text-slate-200 text-xs py-2 px-4 border-b border-navy-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+            <div class="flex items-center space-x-2">
+                <span class="bg-gold-500 text-navy-950 font-bold px-2 py-0.5 rounded text-[10px] uppercase tracking-wider">Admissions Open</span>
+                <span>Now accepting applications for the 2026–2027 Academic Year!</span>
+            </div>
+            <div class="flex items-center space-x-4 text-slate-300">
+                <span><i class="fa-solid fa-phone text-gold-400 mr-1.5"></i>(555) 234-5678</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-envelope text-gold-400 mr-1.5"></i>info@stmargretschool.edu</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- School Crest & Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 border-2 border-gold-500 flex items-center justify-center text-gold-400 shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-shield-halved text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="block font-serif font-bold text-xl text-navy-950 tracking-tight leading-none">St. Margret</span>
+                        <span class="block text-xs font-semibold uppercase tracking-widest text-gold-600 mt-1">Preparatory School</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-7">
+                    <a href="#about" class="text-sm font-semibold text-slate-700 hover:text-navy-900 transition">About Us</a>
+                    <a href="#academics" class="text-sm font-semibold text-slate-700 hover:text-navy-900 transition">Academics</a>
+                    <a href="#picture-day" class="text-sm font-semibold text-navy-900 hover:text-gold-600 transition flex items-center space-x-1.5">
+                        <i class="fa-solid fa-camera-retro text-gold-500"></i>
+                        <span>Picture Day K–8</span>
+                    </a>
+                    <a href="#news-events" class="text-sm font-semibold text-slate-700 hover:text-navy-900 transition">News & Events</a>
+                    <a href="#admissions" class="text-sm font-semibold text-slate-700 hover:text-navy-900 transition">Admissions</a>
+                    <button onclick="openTourModal()" class="bg-navy-900 hover:bg-navy-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition active:scale-95 flex items-center space-x-2">
+                        <i class="fa-solid fa-calendar-check text-gold-400"></i>
+                        <span>Book a Tour</span>
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2.5 rounded-xl text-navy-900 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-6 space-y-2 shadow-xl">
+            <a href="#about" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-navy-900">About Us</a>
+            <a href="#academics" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-navy-900">Academics</a>
+            <a href="#picture-day" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-semibold text-navy-900 bg-amber-50/70">Picture Day Yearbook (K–8)</a>
+            <a href="#news-events" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-navy-900">News & Events</a>
+            <a href="#admissions" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-navy-900">Admissions & Contact</a>
+            <div class="pt-2">
+                <button onclick="toggleMobileMenu(); openTourModal();" class="w-full bg-navy-900 text-white font-semibold py-3 rounded-xl shadow flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-calendar-check text-gold-400"></i>
+                    <span>Book a Campus Tour</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative hero-pattern text-white overflow-hidden">
+        <!-- Subtle gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-900/75"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Hero Text Content -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 bg-navy-900/90 border border-gold-500/40 rounded-full px-4 py-1.5 text-xs font-semibold text-gold-400 tracking-wide uppercase">
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <span>Sapientia, Integritas, Communitas</span>
+                </div>
+
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                    Inspiring Minds, <br>
+                    <span class="text-gold-400">Shaping Future Leaders.</span>
+                </h1>
+
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    Welcome to St. Margret School—where academic rigor meets compassionate mentorship. We empower students from Kindergarten through Grade 8 to discover their passions, lead with integrity, and thrive in a supportive community.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#picture-day" class="w-full sm:w-auto bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-gold-500/20 transition transform hover:-translate-y-0.5 text-center flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-camera-retro"></i>
+                        <span>View Picture Day (K–8)</span>
+                    </a>
+                    <a href="#academics" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/25 font-semibold px-7 py-3.5 rounded-xl backdrop-blur-sm transition text-center">
+                        Explore K–8 Academics
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Featured Campus Visual Card -->
+            <div class="lg:col-span-5">
+                <div class="relative rounded-2xl overflow-hidden border-2 border-gold-500/30 shadow-2xl bg-navy-900">
+                    <img src="https://placehold.co/800x600/0f2354/fbbf24?text=St.+Margret+Campus+%26+Library" alt="St. Margret School Campus" class="w-full h-72 sm:h-80 object-cover opacity-90" onerror="this.src='https://placehold.co/800x600/0f2354/ffffff?text=St.+Margret+School'">
+                    <div class="p-6 bg-navy-950/95 border-t border-navy-800">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm italic text-slate-300">"At St. Margret, every student is known by name, supported in their curiosity, and challenged to reach their highest potential."</p>
+                                <p class="text-xs font-bold text-gold-400 mt-2">— Dr. Eleanor Vance, Head of School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us & School Highlights Section -->
+    <section id="about" class="py-20 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Narrative -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-block text-xs font-bold uppercase tracking-widest text-gold-600 bg-amber-50 px-3 py-1 rounded-lg border border-amber-200">
+                        Our Heritage & Mission
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy-950 leading-tight">
+                        A Tradition of Excellence Since 1964
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        Founded on the belief that education should nurture both intellect and character, St. Margret School offers a balanced, forward-thinking curriculum rooted in timeless values. Our dedicated faculty fosters an inclusive environment where critical thinking, creativity, and service to others flourish.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Whether in our state-of-the-art STEM innovation labs, fine arts studios, or championship athletic fields, St. Margret students learn to collaborate, persevere, and lead with empathy.
+                    </p>
+
+                    <!-- Core Pillars -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start space-x-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                            <i class="fa-solid fa-graduation-cap text-navy-800 text-lg mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-sm text-navy-950">Academic Rigor</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Personalized learning pathways & AP/Honors tracks.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+                            <i class="fa-solid fa-hands-holding-child text-gold-600 text-lg mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-sm text-navy-950">Character & Ethics</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Leadership workshops & community service initiatives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Key Stats Grid -->
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4 sm:gap-6">
+                    <div class="bg-navy-900 text-white p-6 sm:p-8 rounded-2xl shadow-lg border border-navy-800 flex flex-col justify-between">
+                        <i class="fa-solid fa-users text-gold-400 text-2xl mb-4"></i>
+                        <div>
+                            <div class="font-serif text-3xl sm:text-4xl font-bold text-white">12 : 1</div>
+                            <div class="text-xs sm:text-sm text-slate-300 font-medium mt-1">Student-to-Faculty Ratio</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                        <i class="fa-solid fa-award text-navy-800 text-2xl mb-4"></i>
+                        <div>
+                            <div class="font-serif text-3xl sm:text-4xl font-bold text-navy-950">99.4%</div>
+                            <div class="text-xs sm:text-sm text-slate-600 font-medium mt-1">University Acceptance Rate</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                        <i class="fa-solid fa-flask text-gold-600 text-2xl mb-4"></i>
+                        <div>
+                            <div class="font-serif text-3xl sm:text-4xl font-bold text-navy-950">35+</div>
+                            <div class="text-xs sm:text-sm text-slate-600 font-medium mt-1">Clubs, Robotics & Varsity Teams</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gold-500 text-navy-950 p-6 sm:p-8 rounded-2xl shadow-lg flex flex-col justify-between">
+                        <i class="fa-solid fa-book-open-reader text-navy-950 text-2xl mb-4"></i>
+                        <div>
+                            <div class="font-serif text-3xl sm:text-4xl font-bold">60+ Yrs</div>
+                            <div class="text-xs sm:text-sm text-navy-900 font-semibold mt-1">Of Educational Heritage</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics & Programs Section (Interactive Tabs) -->
+    <section id="academics" class="py-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Curriculum & Enrichment</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy-950">Academics & Programs</h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Tailored educational stages designed to build strong foundations in early years and foster independent scholarship in upper grades.
+                </p>
+            </div>
+
+            <!-- Division Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+                <button onclick="selectDivision('primary')" id="div-btn-primary" class="div-tab px-5 py-3 rounded-xl text-sm font-bold bg-navy-900 text-white shadow-md transition">
+                    <i class="fa-solid fa-seedling mr-2 text-gold-400"></i>Primary Years (K–2)
+                </button>
+                <button onclick="selectDivision('elementary')" id="div-btn-elementary" class="div-tab px-5 py-3 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition">
+                    <i class="fa-solid fa-book-open mr-2 text-navy-800"></i>Elementary (Grades 3–5)
+                </button>
+                <button onclick="selectDivision('middle')" id="div-btn-middle" class="div-tab px-5 py-3 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition">
+                    <i class="fa-solid fa-compass mr-2 text-navy-800"></i>Middle Years (Grades 6–8)
+                </button>
+                <button onclick="selectDivision('extracurricular')" id="div-btn-extracurricular" class="div-tab px-5 py-3 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition">
+                    <i class="fa-solid fa-palette mr-2 text-navy-800"></i>Arts & Athletics
+                </button>
+            </div>
+
+            <!-- Dynamic Program Content Card -->
+            <div id="division-display" class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden transition-all">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Annual Picture Day Yearbook Gallery (Kindergarten – Grade 8) -->
+    <section id="picture-day" class="py-20 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950 text-white border-b border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+                <div class="space-y-2 max-w-2xl">
+                    <div class="inline-flex items-center space-x-2 bg-gold-500/15 border border-gold-400/30 text-gold-400 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                        <i class="fa-solid fa-camera-retro"></i>
+                        <span>2026–2027 Annual Yearbook Archive</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">
+                        St. Margret Picture Day <span class="text-gold-400">(K – Grade 8)</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base">
+                        Browse every class from Kindergarten through Grade 8! Click any portrait to view the full yearbook card, or upload real school photos directly onto any student card.
+                    </p>
+                </div>
+
+                <!-- Add Student Photo Action Button -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <button onclick="openAddStudentModal()" class="bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-lg shadow-gold-500/20 transition transform hover:-translate-y-0.5 flex items-center space-x-2">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span>Add Student Photo</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search, Homeroom Filter & Grade Tabs Control Bar -->
+            <div class="bg-navy-900/90 border border-navy-800 rounded-2xl p-4 sm:p-6 mb-8 shadow-xl space-y-5">
+                <!-- Search & Homeroom Controls -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                    <div class="md:col-span-6 relative">
+                        <i class="fa-solid fa-magnifying-glass text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 text-sm"></i>
+                        <input type="text" id="student-search-input" oninput="renderYearbook()" placeholder="Search student by name or favorite subject..." class="w-full bg-navy-950 border border-navy-700 text-white placeholder-slate-400 text-sm rounded-xl pl-11 pr-4 py-3 focus:outline-none focus:border-gold-400 transition">
+                    </div>
+                    <div class="md:col-span-4">
+                        <select id="homeroom-filter-select" onchange="renderYearbook()" class="w-full bg-navy-950 border border-navy-700 text-slate-200 text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-gold-400 transition">
+                            <option value="all">All Class Homerooms</option>
+                            <option value="Room 101 • Ms. Clara">Room 101 • Ms. Clara (K)</option>
+                            <option value="Room 104 • Mr. Patel">Room 104 • Mr. Patel (Gr. 1)</option>
+                            <option value="Room 108 • Mrs. Lin">Room 108 • Mrs. Lin (Gr. 2)</option>
+                            <option value="Room 201 • Ms. Brooks">Room 201 • Ms. Brooks (Gr. 3)</option>
+                            <option value="Room 204 • Mr. O'Connor">Room 204 • Mr. O'Connor (Gr. 4)</option>
+                            <option value="Room 209 • Mrs. Alvarez">Room 209 • Mrs. Alvarez (Gr. 5)</option>
+                            <option value="Room 302 • Mr. Vance">Room 302 • Mr. Vance (Gr. 6)</option>
+                            <option value="Room 305 • Ms. Moreau">Room 305 • Ms. Moreau (Gr. 7)</option>
+                            <option value="Room 310 • Dr. Bennett">Room 310 • Dr. Bennett (Gr. 8)</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2 flex items-center justify-between md:justify-end text-xs text-slate-300 bg-navy-950/70 px-4 py-3 rounded-xl border border-navy-800">
+                        <span>Showing:</span>
+                        <strong id="yearbook-count-badge" class="text-gold-400 font-bold ml-1.5">0 Students</strong>
+                    </div>
+                </div>
+
+                <!-- Grade Filter Pills (All Grades, K, 1, 2, 3, 4, 5, 6, 7, 8) -->
+                <div class="flex flex-wrap gap-2 pt-1" id="grade-tabs-container">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+
+            <!-- Yearbook Portrait Cards Grid -->
+            <div id="yearbook-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="yearbook-empty-state" class="hidden text-center py-16 bg-navy-900/50 rounded-3xl border border-navy-800 space-y-3">
+                <i class="fa-solid fa-face-smile-beam text-4xl text-gold-400/60"></i>
+                <h3 class="font-serif text-xl font-bold text-white">No Matching Student Portraits</h3>
+                <p class="text-xs text-slate-400 max-w-md mx-auto">Try clearing your search filter or switching back to "All Grades" to view every class from Kindergarten to Grade 8.</p>
+                <button onclick="resetYearbookFilters()" class="mt-2 bg-navy-800 hover:bg-navy-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition">Reset Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Upcoming Events Board -->
+    <section id="news-events" class="py-20 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Campus Life & Updates</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy-950 mt-1">News & Upcoming Events</h2>
+                </div>
+
+                <!-- Event Category Filters -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterEvents('all')" id="filter-all" class="event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-navy-900 text-white transition">All Updates</button>
+                    <button onclick="filterEvents('academic')" id="filter-academic" class="event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Academic</button>
+                    <button onclick="filterEvents('community')" id="filter-community" class="event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Community</button>
+                    <button onclick="filterEvents('athletics')" id="filter-athletics" class="event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Athletics & Arts</button>
+                </div>
+            </div>
+
+            <!-- Events Grid -->
+            <div id="events-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions & Contact Section -->
+    <section id="admissions" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left Column: School Info, Hours & Admissions Steps -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Join Our Community</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy-950 mt-1">Admissions & Contact</h2>
+                        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+                            Have questions about enrollment, tuition assistance, or scheduling a private family tour? Reach out to our Admissions Office—we would love to welcome you to St. Margret.
+                        </p>
+                    </div>
+
+                    <!-- Contact Cards -->
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200 flex items-start space-x-4 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-navy-950">Campus Address</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">450 St. Margret Way, Heritage District<br>Moose Jaw, SK S6H 4N2</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200 flex items-start space-x-4 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-navy-950">School & Office Hours</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">Monday – Friday: 7:45 AM – 4:30 PM<br>Classes in Session: 8:20 AM – 3:15 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200 flex items-start space-x-4 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone-volume"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-navy-950">Direct Admissions Desk</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">Phone: (555) 234-5678<br>Email: admissions@stmargretschool.edu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Inquiry Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white rounded-3xl border border-slate-200 shadow-xl p-6 sm:p-10">
+                        <h3 class="font-serif text-2xl font-bold text-navy-950 mb-2">Send an Inquiry</h3>
+                        <p class="text-xs text-slate-500 mb-6">Complete the form below and an admissions counselor will respond within one school day.</p>
+
+                        <!-- Confirmation Banner (Hidden by default) -->
+                        <div id="form-success-banner" class="hidden mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-lg mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-sm">Thank You for Contacting St. Margret School!</h4>
+                                <p id="form-success-text" class="text-xs text-emerald-800 mt-1"></p>
+                            </div>
+                        </div>
+
+                        <form id="inquiry-form" onsubmit="handleInquirySubmit(event)" class="space-y-4" novalidate>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="parentName" class="block text-xs font-bold text-slate-700 mb-1">Parent / Guardian Name *</label>
+                                    <input type="text" id="parentName" required placeholder="e.g., Sarah Jenkins" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-navy-800 focus:border-transparent">
+                                    <p id="err-parentName" class="hidden text-[11px] text-rose-600 mt-1 font-medium">Please enter your full name.</p>
+                                </div>
+                                <div>
+                                    <label for="emailAddress" class="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
+                                    <input type="email" id="emailAddress" required placeholder="sarah@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-navy-800 focus:border-transparent">
+                                    <p id="err-emailAddress" class="hidden text-[11px] text-rose-600 mt-1 font-medium">Please enter a valid email address.</p>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="phoneNumber" class="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
+                                    <input type="tel" id="phoneNumber" placeholder="(555) 123-4567" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-navy-800 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label for="gradeInterest" class="block text-xs font-bold text-slate-700 mb-1">Grade Level of Interest *</label>
+                                    <select id="gradeInterest" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-navy-800">
+                                        <option value="Kindergarten – Grade 5">Lower School (Kindergarten – Grade 5)</option>
+                                        <option value="Grades 6 – 8">Middle School (Grades 6 – 8)</option>
+                                        <option value="Grades 9 – 12">Upper School (Grades 9 – 12)</option>
+                                        <option value="General Inquiry">General / Community Inquiry</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="inquiryMessage" class="block text-xs font-bold text-slate-700 mb-1">Your Message or Questions *</label>
+                                <textarea id="inquiryMessage" rows="4" required placeholder="Tell us about your student's interests or preferred dates for a campus visit..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-navy-800 focus:border-transparent"></textarea>
+                                <p id="err-inquiryMessage" class="hidden text-[11px] text-rose-600 mt-1 font-medium">Please enter a brief message.</p>
+                            </div>
+
+                            <button type="submit" class="w-full bg-navy-900 hover:bg-navy-800 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-xl transition active:scale-[0.99] flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-paper-plane text-gold-400"></i>
+                                <span>Submit Inquiry</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-slate-300 pt-16 pb-10 border-t border-navy-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-navy-900">
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-navy-900 border border-gold-500 flex items-center justify-center text-gold-400">
+                            <i class="fa-solid fa-shield-halved text-lg"></i>
+                        </div>
+                        <span class="font-serif font-bold text-xl text-white">St. Margret School</span>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-md leading-relaxed">
+                        Dedicated to nurturing inquisitive minds, compassionate hearts, and principled leaders since 1964. Accredited by the Independent Schools Association.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-gold-400 mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#about" class="hover:text-white transition">About Our School</a></li>
+                        <li><a href="#academics" class="hover:text-white transition">K–8 Academic Divisions</a></li>
+                        <li><a href="#picture-day" class="hover:text-white transition">Picture Day Yearbook</a></li>
+                        <li><a href="#news-events" class="hover:text-white transition">Calendar & News</a></li>
+                        <li><a href="#admissions" class="hover:text-white transition">Tuition & Financial Aid</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-gold-400 mb-4">Connect</h4>
+                    <div class="flex space-x-3">
+                        <a href="#admissions" aria-label="Parent Portal" class="w-9 h-9 rounded-lg bg-navy-900 hover:bg-gold-500 hover:text-navy-950 flex items-center justify-center transition">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </a>
+                        <a href="#news-events" aria-label="School Calendar" class="w-9 h-9 rounded-lg bg-navy-900 hover:bg-gold-500 hover:text-navy-950 flex items-center justify-center transition">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </a>
+                        <a href="#admissions" aria-label="Contact Email" class="w-9 h-9 rounded-lg bg-navy-900 hover:bg-gold-500 hover:text-navy-950 flex items-center justify-center transition">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 St. Margret Preparatory School. All rights reserved.</p>
+                <p>Motto: <em>Sapientia, Integritas, Communitas</em></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Event Details Modal -->
+    <div id="event-modal" class="fixed inset-0 bg-navy-950/75 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 animate-fade-in">
+            <div class="bg-navy-900 px-6 py-4 flex items-center justify-between text-white">
+                <span id="modal-event-badge" class="text-[11px] font-bold uppercase tracking-wider bg-gold-500 text-navy-950 px-2.5 py-0.5 rounded">Event</span>
+                <button onclick="closeEventModal()" class="text-slate-300 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 sm:p-8 space-y-4">
+                <h3 id="modal-event-title" class="font-serif text-2xl font-bold text-navy-950"></h3>
+                <div class="flex flex-wrap gap-4 text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <span><i class="fa-regular fa-calendar text-gold-600 mr-1.5"></i><strong id="modal-event-date"></strong></span>
+                    <span><i class="fa-solid fa-location-dot text-navy-800 mr-1.5"></i><strong id="modal-event-location"></strong></span>
+                </div>
+                <p id="modal-event-desc" class="text-sm text-slate-600 leading-relaxed"></p>
+                <div class="pt-4 flex justify-end space-x-3">
+                    <button onclick="closeEventModal()" class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition">Close</button>
+                    <a href="#admissions" onclick="closeEventModal()" class="px-5 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold transition">RSVP / Inquire</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Picture Day Lightbox & Edit Photo Modal -->
+    <div id="portrait-lightbox-modal" class="fixed inset-0 bg-navy-950/85 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl border-2 border-gold-500/40">
+            <div class="bg-navy-900 px-6 py-4 flex items-center justify-between text-white">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-id-badge text-gold-400"></i>
+                    <span class="font-bold text-sm">St. Margret Picture Day Portrait Card</span>
+                </div>
+                <button onclick="closePortraitModal()" class="text-slate-300 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                <!-- Portrait Preview -->
+                <div class="sm:col-span-5 flex flex-col items-center space-y-3">
+                    <div id="lightbox-portrait-frame" class="w-44 h-52 rounded-2xl overflow-hidden border-4 border-gold-500/50 shadow-lg bg-slate-100 flex items-center justify-center">
+                        <!-- SVG or Uploaded Image injected via JS -->
+                    </div>
+                    <label class="w-full cursor-pointer bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold py-2.5 px-3 rounded-xl text-center transition flex items-center justify-center space-x-1.5 shadow">
+                        <i class="fa-solid fa-upload text-gold-400"></i>
+                        <span>Upload / Replace Photo</span>
+                        <input type="file" accept="image/*" class="hidden" onchange="handleLightboxPhotoUpload(event)">
+                    </label>
+                </div>
+
+                <!-- Editable Student Details -->
+                <div class="sm:col-span-7 space-y-3">
+                    <div>
+                        <span id="lightbox-grade-pill" class="inline-block bg-amber-100 text-amber-900 text-[11px] font-bold px-2.5 py-0.5 rounded-full mb-1">Grade</span>
+                        <label class="block text-[11px] font-bold text-slate-500 uppercase mt-1">Student Name</label>
+                        <input type="text" id="lightbox-name-input" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm font-bold text-navy-950 focus:outline-none focus:border-navy-800">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold text-slate-500 uppercase">Homeroom</label>
+                        <p id="lightbox-homeroom-text" class="text-xs font-semibold text-slate-700 bg-slate-50 px-3 py-2 rounded-xl border border-slate-200"></p>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold text-slate-500 uppercase">Favorite Subject / Yearbook Quote</label>
+                        <textarea id="lightbox-quote-input" rows="2" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs text-slate-700 focus:outline-none focus:border-navy-800"></textarea>
+                    </div>
+                    <div class="pt-2 flex justify-end space-x-2">
+                        <button onclick="closePortraitModal()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700">Close</button>
+                        <button onclick="saveLightboxEdits()" class="px-4 py-2 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 text-xs font-bold shadow">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add New Student Photo Modal -->
+    <div id="add-student-modal" class="fixed inset-0 bg-navy-950/85 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-200">
+            <div class="bg-navy-900 px-6 py-4 flex items-center justify-between text-white">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-user-plus text-gold-400"></i>
+                    <span class="font-bold text-sm">Add Student to Picture Day</span>
+                </div>
+                <button onclick="closeAddStudentModal()" class="text-slate-300 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <form onsubmit="handleAddNewStudent(event)" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Student Full Name *</label>
+                    <input type="text" id="new-student-name" required placeholder="e.g., Maya Lin" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-navy-800">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Grade Level *</label>
+                        <select id="new-student-grade" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-navy-800">
+                            <option value="Kindergarten">Kindergarten</option>
+                            <option value="Grade 1">Grade 1</option>
+                            <option value="Grade 2">Grade 2</option>
+                            <option value="Grade 3">Grade 3</option>
+                            <option value="Grade 4">Grade 4</option>
+                            <option value="Grade 5">Grade 5</option>
+                            <option value="Grade 6">Grade 6</option>
+                            <option value="Grade 7">Grade 7</option>
+                            <option value="Grade 8">Grade 8</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Favorite Subject</label>
+                        <input type="text" id="new-student-subject" placeholder="e.g., Science & Art" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-navy-800">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Upload Picture Day Photo (Optional)</label>
+                    <input type="file" id="new-student-file" accept="image/*" class="w-full text-xs text-slate-600 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-navy-900 file:text-white hover:file:bg-navy-800 cursor-pointer">
+                    <p class="text-[11px] text-slate-400 mt-1">If no photo is selected, a custom St. Margret illustrated portrait will be generated.</p>
+                </div>
+                <div class="pt-2 flex justify-end space-x-2">
+                    <button type="button" onclick="closeAddStudentModal()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700">Cancel</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 text-xs font-bold shadow">Add to Yearbook</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hidden global file input for quick direct card photo replacement -->
+    <input type="file" id="quick-card-file-input" accept="image/*" class="hidden" onchange="handleQuickCardFileChange(event)">
+
+    <!-- Quick Tour Booking Modal -->
+    <div id="tour-modal" class="fixed inset-0 bg-navy-950/75 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-200">
+            <div class="bg-navy-900 px-6 py-4 flex items-center justify-between text-white">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-calendar-check text-gold-400"></i>
+                    <span class="font-bold text-sm">Schedule a Campus Tour</span>
+                </div>
+                <button onclick="closeTourModal()" class="text-slate-300 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <form onsubmit="handleTourSubmit(event)" class="p-6 space-y-4">
+                <p class="text-xs text-slate-600">Experience St. Margret firsthand! Choose a preferred day to meet our faculty and tour our classrooms.</p>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Family Name *</label>
+                    <input type="text" id="tour-name" required placeholder="Your Full Name" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-navy-800">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
+                    <input type="email" id="tour-email" required placeholder="you@example.com" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-navy-800">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Preferred Tour Day</label>
+                    <select id="tour-day" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-navy-800">
+                        <option>Tuesday Morning (9:30 AM)</option>
+                        <option>Thursday Afternoon (1:30 PM)</option>
+                        <option>Saturday Open House (10:00 AM)</option>
+                    </select>
+                </div>
+                <div id="tour-confirm-msg" class="hidden p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium"></div>
+                <div class="pt-2 flex justify-end space-x-2">
+                    <button type="button" onclick="closeTourModal()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700">Cancel</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 text-xs font-bold shadow">Confirm Tour</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // --- Academic Divisions Data (K–8 Focus) ---
+        const divisions = {
+            primary: {
+                title: "Primary Years (Kindergarten – Grade 2)",
+                subtitle: "Sparking Curiosity & Joyful Discovery",
+                description: "Our Primary Years program nurtures young learners in a warm, structured environment where foundational phonics, early numeracy, and hands-on discovery come together. Small class sizes ensure every child feels known and supported.",
+                highlights: [
+                    "Phonics-rich reading & creative storytelling workshops",
+                    "Hands-on math manipulatives & playful logic puzzles",
+                    "Weekly studio art, choral music, and outdoor nature walks",
+                    "Social-emotional learning & kindness mentorship"
+                ],
+                badge: "Ages 5–8",
+                image: "https://placehold.co/700x500/1e3a8a/fbbf24?text=Primary+Years+Discovery+K-2"
+            },
+            elementary: {
+                title: "Elementary Division (Grades 3 – 5)",
+                subtitle: "Growing Independence, Collaboration & Inquiry",
+                description: "In Grades 3 through 5, St. Margret students transition from learning to read to reading to learn. Interactive science labs, collaborative writing projects, and coding fundamentals empower students to ask big questions.",
+                highlights: [
+                    "Inquiry-based earth & life science laboratory experiments",
+                    "Introductory computer science, Scratch coding & digital citizenship",
+                    "Novel studies, public speaking & creative writing portfolios",
+                    "Choir, strings ensemble, and intramural sports"
+                ],
+                badge: "Grades 3–5",
+                image: "https://placehold.co/700x500/0f2354/fbbf24?text=Elementary+Scholars+3-5"
+            },
+            middle: {
+                title: "Middle Years (Grades 6 – 8)",
+                subtitle: "Leadership, Critical Thinking & High School Readiness",
+                description: "During these pivotal middle grades, St. Margret guides students with departmentalized subject specialists and dedicated faculty advisors, preparing graduates to excel in top secondary programs.",
+                highlights: [
+                    "Pre-Algebra, Algebra I & VEX Robotics engineering",
+                    "World languages: French and Spanish foundations",
+                    "Student Council leadership, Debate Club & Science Fair",
+                    "Grade 8 Capstone Community Service & Graduation Showcase"
+                ],
+                badge: "Grades 6–8",
+                image: "https://placehold.co/700x500/081433/fbbf24?text=Middle+Years+Leadership+6-8"
+            },
+            extracurricular: {
+                title: "Fine Arts, Athletics & Student Life",
+                subtitle: "Developing Well-Rounded Leaders Beyond the Classroom",
+                description: "Life at St. Margret extends well beyond textbooks. Every student from Kindergarten to Grade 8 is encouraged to explore artistic expression, athletic teamwork, and service clubs.",
+                highlights: [
+                    "Griffins Athletics: Soccer, Basketball, Track & Field, Volleyball",
+                    "Concert Band, Primary Choir & Annual Spring Musical",
+                    "Visual Arts, Ceramics, and Yearbook Photography Club",
+                    "Eco-Stewards Sustainability Club & Community Outreach"
+                ],
+                badge: "K–8 Co-Curriculars",
+                image: "https://placehold.co/700x500/1e3a8a/ffffff?text=St.+Margret+Arts+%26+Athletics"
+            }
+        };
+
+        // --- Picture Day Yearbook Data (Kindergarten through Grade 8) ---
+        const gradeLevels = [
+            "All Grades",
+            "Kindergarten",
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Grade 6",
+            "Grade 7",
+            "Grade 8"
+        ];
+
+        const homeroomMap = {
+            "Kindergarten": "Room 101 • Ms. Clara",
+            "Grade 1": "Room 104 • Mr. Patel",
+            "Grade 2": "Room 108 • Mrs. Lin",
+            "Grade 3": "Room 201 • Ms. Brooks",
+            "Grade 4": "Room 204 • Mr. O'Connor",
+            "Grade 5": "Room 209 • Mrs. Alvarez",
+            "Grade 6": "Room 302 • Mr. Vance",
+            "Grade 7": "Room 305 • Ms. Moreau",
+            "Grade 8": "Room 310 • Dr. Bennett"
+        };
+
+        let studentsData = [
+            // Kindergarten
+            { id: 101, name: "Leo Thompson", grade: "Kindergarten", homeroom: "Room 101 • Ms. Clara", quote: "Loves finger painting and dinosaur books!", skin: "#f5cba7", hair: "#4a2c18", hairStyle: "short", shirt: "#1e3a8a", bg: "#dbeafe", glasses: false, customPhoto: null },
+            { id: 102, name: "Amara Okafor", grade: "Kindergarten", homeroom: "Room 101 • Ms. Clara", quote: "Favorite thing is singing songs in circle time.", skin: "#6f442a", hair: "#1a110b", hairStyle: "puffs", shirt: "#d97706", bg: "#fef3c7", glasses: false, customPhoto: null },
+            { id: 103, name: "Chloe Tremblay", grade: "Kindergarten", homeroom: "Room 101 • Ms. Clara", quote: "Building tall block towers with my friends!", skin: "#fad7a0", hair: "#b7791f", hairStyle: "bob", shirt: "#0f2354", bg: "#e0e7ff", glasses: true, customPhoto: null },
+
+            // Grade 1
+            { id: 104, name: "Noah Chen", grade: "Grade 1", homeroom: "Room 104 • Mr. Patel", quote: "Reading chapter books and learning addition.", skin: "#f0c29c", hair: "#1c1917", hairStyle: "spiky", shirt: "#1d4ed8", bg: "#dbeafe", glasses: false, customPhoto: null },
+            { id: 105, name: "Sofia Morales", grade: "Grade 1", homeroom: "Room 104 • Mr. Patel", quote: "Art class and drawing rainbows!", skin: "#d99b72", hair: "#29170e", hairStyle: "long", shirt: "#b45309", bg: "#ffedd5", glasses: false, customPhoto: null },
+            { id: 106, name: "Liam MacLeod", grade: "Grade 1", homeroom: "Room 104 • Mr. Patel", quote: "Playing soccer at recess with Grade 1.", skin: "#f8d5b8", hair: "#9a3412", hairStyle: "curly", shirt: "#065f46", bg: "#d1fae5", glasses: false, customPhoto: null },
+
+            // Grade 2
+            { id: 107, name: "Zara Siddiqui", grade: "Grade 2", homeroom: "Room 108 • Mrs. Lin", quote: "Exploring nature and butterflies in Science.", skin: "#c68658", hair: "#18181b", hairStyle: "braids", shirt: "#1e3a8a", bg: "#e0e7ff", glasses: true, customPhoto: null },
+            { id: 108, name: "Owen Gallagher", grade: "Grade 2", homeroom: "Room 108 • Mrs. Lin", quote: "Math puzzles and Friday library time.", skin: "#f5cba7", hair: "#78350f", hairStyle: "short", shirt: "#b91c1c", bg: "#fee2e2", glasses: false, customPhoto: null },
+            { id: 109, name: "Hannah Kim", grade: "Grade 2", homeroom: "Room 108 • Mrs. Lin", quote: "Playing piano and writing animal stories.", skin: "#f3c69f", hair: "#1f1a17", hairStyle: "bob", shirt: "#0f2354", bg: "#fef3c7", glasses: false, customPhoto: null },
+
+            // Grade 3
+            { id: 110, name: "Mateo Silva", grade: "Grade 3", homeroom: "Room 201 • Ms. Brooks", quote: "Coding animations on Scratch and multiplication!", skin: "#c88a5b", hair: "#271810", hairStyle: "curly", shirt: "#1e40af", bg: "#dbeafe", glasses: false, customPhoto: null },
+            { id: 111, name: "Aria Patel", grade: "Grade 3", homeroom: "Room 201 • Ms. Brooks", quote: "Science experiments and choir practice.", skin: "#b87648", hair: "#14100d", hairStyle: "long", shirt: "#d97706", bg: "#fef3c7", glasses: false, customPhoto: null },
+            { id: 112, name: "Caleb Novak", grade: "Grade 3", homeroom: "Room 201 • Ms. Brooks", quote: "Basketball and reading mystery series.", skin: "#f5d0b5", hair: "#ca8a04", hairStyle: "spiky", shirt: "#0f2354", bg: "#e0e7ff", glasses: true, customPhoto: null },
+
+            // Grade 4
+            { id: 113, name: "Nadia Kowalski", grade: "Grade 4", homeroom: "Room 204 • Mr. O'Connor", quote: "Creative writing and St. Margret String Ensemble.", skin: "#f7d4ba", hair: "#a16207", hairStyle: "long", shirt: "#047857", bg: "#d1fae5", glasses: false, customPhoto: null },
+            { id: 114, name: "Isaiah Brooks", grade: "Grade 4", homeroom: "Room 204 • Mr. O'Connor", quote: "Robotics club and social studies history projects.", skin: "#5c3822", hair: "#120d0a", hairStyle: "short", shirt: "#1e3a8a", bg: "#dbeafe", glasses: false, customPhoto: null },
+            { id: 115, name: "Mei-Ling Zhou", grade: "Grade 4", homeroom: "Room 204 • Mr. O'Connor", quote: "Sketching portraits and geometry challenges.", skin: "#efd0b1", hair: "#1c1917", hairStyle: "puffs", shirt: "#b45309", bg: "#ffedd5", glasses: true, customPhoto: null },
+
+            // Grade 5
+            { id: 116, name: "Lucas Deschamps", grade: "Grade 5", homeroom: "Room 209 • Mrs. Alvarez", quote: "Varsity track team and French language class.", skin: "#e8be9a", hair: "#4a2e1b", hairStyle: "curly", shirt: "#0f2354", bg: "#e0e7ff", glasses: false, customPhoto: null },
+            { id: 117, name: "Fatima Al-Mansoor", grade: "Grade 5", homeroom: "Room 209 • Mrs. Alvarez", quote: "Environmental club and astronomy unit!", skin: "#c98e63", hair: "#1f1611", hairStyle: "long", shirt: "#1d4ed8", bg: "#dbeafe", glasses: false, customPhoto: null },
+            { id: 118, name: "Aiden O'Sullivan", grade: "Grade 5", homeroom: "Room 209 • Mrs. Alvarez", quote: "Building bridges in STEM and school band.", skin: "#f6d3b8", hair: "#b45309", hairStyle: "short", shirt: "#991b1b", bg: "#fee2e2", glasses: false, customPhoto: null },
+
+            // Grade 6
+            { id: 119, name: "Priya Nair", grade: "Grade 6", homeroom: "Room 302 • Mr. Vance", quote: "VEX Robotics programmer and Debate Club member.", skin: "#9c623b", hair: "#140f0c", hairStyle: "braids", shirt: "#0f2354", bg: "#fef3c7", glasses: true, customPhoto: null },
+            { id: 120, name: "Ethan Lindqvist", grade: "Grade 6", homeroom: "Room 302 • Mr. Vance", quote: "History bowls and Griffins soccer midfield.", skin: "#f7d7be", hair: "#d97706", hairStyle: "spiky", shirt: "#1e3a8a", bg: "#dbeafe", glasses: false, customPhoto: null },
+            { id: 121, name: "Camila Herrera", grade: "Grade 6", homeroom: "Room 302 • Mr. Vance", quote: "Ceramics studio and Student Council representative.", skin: "#cf9368", hair: "#29180f", hairStyle: "bob", shirt: "#065f46", bg: "#d1fae5", glasses: false, customPhoto: null },
+
+            // Grade 7
+            { id: 122, name: "Julian Mensah", grade: "Grade 7", homeroom: "Room 305 • Ms. Moreau", quote: "Concert band percussionist and algebra honors.", skin: "#54321d", hair: "#0f0a07", hairStyle: "short", shirt: "#1e3a8a", bg: "#e0e7ff", glasses: false, customPhoto: null },
+            { id: 123, name: "Clara Beaumont", grade: "Grade 7", homeroom: "Room 305 • Ms. Moreau", quote: "Yearbook photography editor and drama club.", skin: "#f4ccb0", hair: "#6b3e23", hairStyle: "long", shirt: "#b45309", bg: "#fef3c7", glasses: true, customPhoto: null },
+            { id: 124, name: "David Park", grade: "Grade 7", homeroom: "Room 305 • Ms. Moreau", quote: "Chemistry lab experiments and basketball.", skin: "#ecc39f", hair: "#18181b", hairStyle: "curly", shirt: "#0f2354", bg: "#dbeafe", glasses: false, customPhoto: null },
+
+            // Grade 8
+            { id: 125, name: "Elena Rostova", grade: "Grade 8", homeroom: "Room 310 • Dr. Bennett", quote: "Grade 8 Class President & Science Fair finalist.", skin: "#f5d1b8", hair: "#854d0e", hairStyle: "long", shirt: "#0f2354", bg: "#fef3c7", glasses: false, customPhoto: null },
+            { id: 126, name: "Marcus Sterling", grade: "Grade 8", homeroom: "Room 310 • Dr. Bennett", quote: "Varsity Basketball Captain & Capstone researcher.", skin: "#78492c", hair: "#17110d", hairStyle: "short", shirt: "#1e3a8a", bg: "#dbeafe", glasses: true, customPhoto: null },
+            { id: 127, name: "Sora Takahashi", grade: "Grade 8", homeroom: "Room 310 • Dr. Bennett", quote: "Lead violinist in Chamber Ensemble & Peer Tutor.", skin: "#f0c8a5", hair: "#1c1917", hairStyle: "bob", shirt: "#991b1b", bg: "#fee2e2", glasses: false, customPhoto: null }
+        ];
+
+        let selectedGradeTab = "All Grades";
+        let activeLightboxStudentId = null;
+        let quickUploadTargetId = null;
+
+        // Generate Friendly School Picture Day SVG Portrait
+        function buildStudentPortraitSVG(student) {
+            if (student.customPhoto) {
+                return `<img src="${student.customPhoto}" alt="${student.name}" class="w-full h-full object-cover">`;
+            }
+
+            let hairBack = "";
+            let hairFront = "";
+
+            if (student.hairStyle === "long") {
+                hairBack = `<rect x="48" y="42" width="104" height="115" rx="45" fill="${student.hair}"/>`;
+                hairFront = `<path d="M55,75 Q100,32 145,75 Q140,48 100,48 Q60,48 55,75 Z" fill="${student.hair}"/>`;
+            } else if (student.hairStyle === "bob") {
+                hairBack = `<rect x="50" y="42" width="100" height="88" rx="42" fill="${student.hair}"/>`;
+                hairFront = `<path d="M55,78 Q100,36 145,78 L142,58 Q100,38 58,58 Z" fill="${student.hair}"/>`;
+            } else if (student.hairStyle === "puffs") {
+                hairBack = `<circle cx="54" cy="52" r="22" fill="${student.hair}"/><circle cx="146" cy="52" r="22" fill="${student.hair}"/>`;
+                hairFront = `<path d="M58,72 Q100,35 142,72 Q132,45 100,45 Q68,45 58,72 Z" fill="${student.hair}"/>`;
+            } else if (student.hairStyle === "braids") {
+                hairBack = `<rect x="52" y="75" width="14" height="75" rx="7" fill="${student.hair}"/><rect x="134" y="75" width="14" height="75" rx="7" fill="${student.hair}"/>`;
+                hairFront = `<path d="M56,74 Q100,34 144,74 Q135,44 100,44 Q65,44 56,74 Z" fill="${student.hair}"/>`;
+            } else if (student.hairStyle === "curly") {
+                hairFront = `
+                    <circle cx="65" cy="55" r="14" fill="${student.hair}"/>
+                    <circle cx="85" cy="46" r="15" fill="${student.hair}"/>
+                    <circle cx="105" cy="45" r="15" fill="${student.hair}"/>
+                    <circle cx="125" cy="50" r="14" fill="${student.hair}"/>
+                    <circle cx="138" cy="62" r="12" fill="${student.hair}"/>
+                    <circle cx="60" cy="68" r="11" fill="${student.hair}"/>
+                `;
+            } else if (student.hairStyle === "spiky") {
+                hairFront = `<polygon points="58,72 64,45 78,56 90,38 102,55 116,38 128,56 140,46 142,72 130,58 70,58" fill="${student.hair}"/>`;
+            } else {
+                // short classic cut
+                hairFront = `<path d="M58,74 Q58,40 100,40 Q142,40 142,74 Q134,54 100,54 Q66,54 58,74 Z" fill="${student.hair}"/>`;
+            }
+
+            const glassesSVG = student.glasses ? `
+                <g stroke="#1e293b" stroke-width="2.5" fill="rgba(255,255,255,0.2)">
+                    <rect x="70" y="80" width="24" height="16" rx="5"/>
+                    <rect x="106" y="80" width="24" height="16" rx="5"/>
+                    <line x1="94" y1="87" x2="106" y2="87"/>
+                </g>
+            ` : "";
+
+            return `
+                <svg viewBox="0 0 200 220" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Studio Backdrop -->
+                    <rect width="200" height="220" fill="${student.bg}"/>
+                    <circle cx="100" cy="95" r="78" fill="#ffffff" opacity="0.45"/>
+                    
+                    ${hairBack}
+
+                    <!-- Shoulders & School Uniform / Sweater -->
+                    <path d="M32,220 C32,168 62,152 100,152 C138,152 168,168 168,220 Z" fill="${student.shirt}"/>
+                    <!-- White Collar -->
+                    <polygon points="82,153 100,174 90,182 74,160" fill="#ffffff"/>
+                    <polygon points="118,153 100,174 110,182 126,160" fill="#ffffff"/>
+                    <!-- Gold School Crest Pin -->
+                    <circle cx="132" cy="184" r="7" fill="#fbbf24" stroke="#0f2354" stroke-width="1.5"/>
+
+                    <!-- Neck -->
+                    <rect x="88" y="128" width="24" height="30" rx="10" fill="${student.skin}"/>
+
+                    <!-- Ears -->
+                    <circle cx="60" cy="92" r="9" fill="${student.skin}"/>
+                    <circle cx="140" cy="92" r="9" fill="${student.skin}"/>
+
+                    <!-- Face -->
+                    <rect x="62" y="48" width="76" height="88" rx="38" fill="${student.skin}"/>
+
+                    ${hairFront}
+
+                    <!-- Friendly Eyes -->
+                    <circle cx="82" cy="88" r="4.5" fill="#1e293b"/>
+                    <circle cx="118" cy="88" r="4.5" fill="#1e293b"/>
+                    <circle cx="83.5" cy="86.5" r="1.5" fill="#ffffff"/>
+                    <circle cx="119.5" cy="86.5" r="1.5" fill="#ffffff"/>
+
+                    <!-- Eyebrows -->
+                    <path d="M74,78 Q82,74 90,78" stroke="#1e293b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                    <path d="M110,78 Q118,74 126,78" stroke="#1e293b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+                    <!-- Rosy Cheeks -->
+                    <ellipse cx="74" cy="102" rx="6" ry="3.5" fill="#f43f5e" opacity="0.22"/>
+                    <ellipse cx="126" cy="102" rx="6" ry="3.5" fill="#f43f5e" opacity="0.22"/>
+
+                    <!-- Big Picture Day Smile -->
+                    <path d="M84,108 Q100,124 116,108" stroke="#1e293b" stroke-width="2.8" fill="#ffffff" stroke-linecap="round"/>
+
+                    ${glassesSVG}
+                </svg>
+            `;
+        }
+
+        function renderGradeTabs() {
+            const container = document.getElementById('grade-tabs-container');
+            container.innerHTML = gradeLevels.map(grade => {
+                const isActive = selectedGradeTab === grade;
+                const count = grade === "All Grades"
+                    ? studentsData.length
+                    : studentsData.filter(s => s.grade === grade).length;
+
+                return `
+                    <button onclick="selectGradeTab('${grade}')" class="px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 ${
+                        isActive
+                            ? 'bg-gold-500 text-navy-950 shadow-md shadow-gold-500/20'
+                            : 'bg-navy-950 text-slate-300 border border-navy-800 hover:border-gold-400/50 hover:text-white'
+                    }">
+                        <span>${grade}</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded-full ${isActive ? 'bg-navy-950/20 text-navy-950' : 'bg-navy-800 text-slate-400'}">${count}</span>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function selectGradeTab(grade) {
+            selectedGradeTab = grade;
+            renderGradeTabs();
+            renderYearbook();
+        }
+
+        function resetYearbookFilters() {
+            selectedGradeTab = "All Grades";
+            document.getElementById('student-search-input').value = "";
+            document.getElementById('homeroom-filter-select').value = "all";
+            renderGradeTabs();
+            renderYearbook();
+        }
+
+        function renderYearbook() {
+            const searchQuery = document.getElementById('student-search-input').value.trim().toLowerCase();
+            const homeroomFilter = document.getElementById('homeroom-filter-select').value;
+
+            const filtered = studentsData.filter(student => {
+                const matchesGrade = selectedGradeTab === "All Grades" || student.grade === selectedGradeTab;
+                const matchesHomeroom = homeroomFilter === "all" || student.homeroom === homeroomFilter;
+                const matchesSearch = !searchQuery ||
+                    student.name.toLowerCase().includes(searchQuery) ||
+                    student.quote.toLowerCase().includes(searchQuery) ||
+                    student.grade.toLowerCase().includes(searchQuery);
+
+                return matchesGrade && matchesHomeroom && matchesSearch;
+            });
+
+            document.getElementById('yearbook-count-badge').innerText = `${filtered.length} ${filtered.length === 1 ? 'Student' : 'Students'}`;
+
+            const grid = document.getElementById('yearbook-grid');
+            const emptyState = document.getElementById('yearbook-empty-state');
+
+            if (filtered.length === 0) {
+                grid.innerHTML = "";
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            grid.innerHTML = filtered.map(student => `
+                <div class="bg-navy-900/95 rounded-2xl border border-navy-800 hover:border-gold-400/60 overflow-hidden shadow-lg hover:shadow-2xl transition group flex flex-col justify-between">
+                    <!-- Portrait Frame (Clickable for Lightbox) -->
+                    <div onclick="openPortraitModal(${student.id})" class="relative aspect-[4/4.3] w-full overflow-hidden cursor-pointer bg-slate-100">
+                        ${buildStudentPortraitSVG(student)}
+                        <div class="absolute top-2.5 left-2.5">
+                            <span class="bg-navy-950/85 backdrop-blur-sm text-gold-400 border border-gold-400/30 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg shadow">
+                                ${student.grade}
+                            </span>
+                        </div>
+                        <div class="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/30 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <span class="bg-white/95 text-navy-950 text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg flex items-center space-x-1.5">
+                                <i class="fa-solid fa-expand text-gold-600"></i>
+                                <span>View Card</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Student Info & Quick Upload Button -->
+                    <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <h3 onclick="openPortraitModal(${student.id})" class="font-serif font-bold text-base text-white group-hover:text-gold-400 transition cursor-pointer">${student.name}</h3>
+                            <p class="text-[11px] text-slate-400 font-medium mt-0.5">${student.homeroom}</p>
+                            <p class="text-xs text-slate-300 italic mt-2 line-clamp-2">"${student.quote}"</p>
+                        </div>
+
+                        <div class="pt-2 border-t border-navy-800/90 flex items-center justify-between gap-2">
+                            <button onclick="triggerQuickCardUpload(${student.id})" class="w-full py-2 px-3 rounded-xl bg-navy-950 hover:bg-navy-800 border border-navy-700 text-[11px] font-bold text-slate-200 hover:text-gold-400 transition flex items-center justify-center space-x-1.5">
+                                <i class="fa-solid fa-camera text-gold-400"></i>
+                                <span>${student.customPhoto ? 'Replace Photo' : 'Upload Photo'}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Quick Photo Upload directly from Student Card
+        function triggerQuickCardUpload(studentId) {
+            quickUploadTargetId = studentId;
+            const input = document.getElementById('quick-card-file-input');
+            input.value = "";
+            input.click();
+        }
+
+        function handleQuickCardFileChange(event) {
+            const file = event.target.files[0];
+            if (!file || quickUploadTargetId === null) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const student = studentsData.find(s => s.id === quickUploadTargetId);
+                if (student) {
+                    student.customPhoto = e.target.result;
+                    renderYearbook();
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Lightbox Modal Controls
+        function openPortraitModal(studentId) {
+            const student = studentsData.find(s => s.id === studentId);
+            if (!student) return;
+
+            activeLightboxStudentId = studentId;
+            document.getElementById('lightbox-portrait-frame').innerHTML = buildStudentPortraitSVG(student);
+            document.getElementById('lightbox-grade-pill').innerText = `${student.grade} • 2026–2027 Picture Day`;
+            document.getElementById('lightbox-name-input').value = student.name;
+            document.getElementById('lightbox-homeroom-text').innerText = student.homeroom;
+            document.getElementById('lightbox-quote-input').value = student.quote;
+
+            const modal = document.getElementById('portrait-lightbox-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closePortraitModal() {
+            const modal = document.getElementById('portrait-lightbox-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            activeLightboxStudentId = null;
+        }
+
+        function handleLightboxPhotoUpload(event) {
+            const file = event.target.files[0];
+            if (!file || activeLightboxStudentId === null) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const student = studentsData.find(s => s.id === activeLightboxStudentId);
+                if (student) {
+                    student.customPhoto = e.target.result;
+                    document.getElementById('lightbox-portrait-frame').innerHTML = buildStudentPortraitSVG(student);
+                    renderYearbook();
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveLightboxEdits() {
+            if (activeLightboxStudentId === null) return;
+            const student = studentsData.find(s => s.id === activeLightboxStudentId);
+            if (student) {
+                const updatedName = document.getElementById('lightbox-name-input').value.trim();
+                const updatedQuote = document.getElementById('lightbox-quote-input').value.trim();
+                if (updatedName) student.name = updatedName;
+                if (updatedQuote) student.quote = updatedQuote;
+                renderYearbook();
+            }
+            closePortraitModal();
+        }
+
+        // Add New Student Modal Controls
+        function openAddStudentModal() {
+            const modal = document.getElementById('add-student-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeAddStudentModal() {
+            const modal = document.getElementById('add-student-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleAddNewStudent(event) {
+            event.preventDefault();
+            const name = document.getElementById('new-student-name').value.trim();
+            const grade = document.getElementById('new-student-grade').value;
+            const subject = document.getElementById('new-student-subject').value.trim() || "Proud St. Margret Griffin!";
+            const fileInput = document.getElementById('new-student-file');
+
+            const newId = Date.now();
+            const hairStyles = ["short", "long", "bob", "curly", "spiky", "puffs"];
+            const randomHair = hairStyles[Math.floor(Math.random() * hairStyles.length)];
+
+            const createRecord = (photoDataUrl) => {
+                studentsData.unshift({
+                    id: newId,
+                    name: name,
+                    grade: grade,
+                    homeroom: homeroomMap[grade] || "Main Campus",
+                    quote: subject,
+                    skin: "#e8be9a",
+                    hair: "#29180f",
+                    hairStyle: randomHair,
+                    shirt: "#0f2354",
+                    bg: "#fef3c7",
+                    glasses: false,
+                    customPhoto: photoDataUrl
+                });
+
+                selectedGradeTab = grade;
+                renderGradeTabs();
+                renderYearbook();
+                event.target.reset();
+                closeAddStudentModal();
+            };
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => createRecord(e.target.result);
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                createRecord(null);
+            }
+        }
+
+        function selectDivision(key) {
+            // Update tab button styles
+            document.querySelectorAll('.div-tab').forEach(btn => {
+                btn.className = "div-tab px-5 py-3 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition";
+            });
+            const activeBtn = document.getElementById(`div-btn-${key}`);
+            activeBtn.className = "div-tab px-5 py-3 rounded-xl text-sm font-bold bg-navy-900 text-white shadow-md transition";
+
+            // Render content
+            const data = divisions[key];
+            const container = document.getElementById('division-display');
+            container.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    <div class="lg:col-span-7 p-8 sm:p-10 space-y-5 flex flex-col justify-center">
+                        <div class="flex items-center space-x-3">
+                            <span class="bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold px-3 py-1 rounded-full">${data.badge}</span>
+                            <span class="text-xs font-semibold text-gold-600 uppercase tracking-wider">${data.subtitle}</span>
+                        </div>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-navy-950">${data.title}</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">${data.description}</p>
+                        <div class="pt-2">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-navy-900 mb-3">Program Highlights:</h4>
+                            <ul class="space-y-2.5">
+                                ${data.highlights.map(item => `
+                                    <li class="flex items-start space-x-2.5 text-sm text-slate-700">
+                                        <i class="fa-solid fa-circle-check text-gold-500 mt-1 shrink-0"></i>
+                                        <span>${item}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 bg-navy-900 relative min-h-[260px]">
+                        <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/700x500/0f2354/ffffff?text=St.+Margret+Academics'">
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- News & Events Data ---
+        const schoolEvents = [
+            {
+                id: 1,
+                title: "Winter Open House & Campus Showcase",
+                category: "community",
+                categoryLabel: "Community",
+                date: "December 5, 2026 • 10:00 AM",
+                location: "Main Heritage Hall",
+                summary: "Prospective families are invited to tour classrooms, meet student ambassadors, and attend a welcome presentation by Head of School Dr. Eleanor Vance.",
+                details: "Join us for a guided walking tour of our Lower, Middle, and Upper School wings. Refreshments will be served in the Founders Commons, followed by a Q&A panel with current parents, faculty department chairs, and student leaders."
+            },
+            {
+                id: 2,
+                title: "Annual STEM & Robotics Exhibition",
+                category: "academic",
+                categoryLabel: "Academic",
+                date: "December 12, 2026 • 1:30 PM",
+                location: "Margret Innovation Center",
+                summary: "Students from Grades 4–12 showcase autonomous robotics prototypes, coding projects, and environmental engineering solutions.",
+                details: "Our annual STEM Exhibition celebrates student innovation and problem-solving. Visitors can test student-built robotics courses, view interactive physics demonstrations, and cheer on the St. Margret Varsity Robotics squad."
+            },
+            {
+                id: 3,
+                title: "Candlelight Winter Choral & Chamber Concert",
+                category: "athletics",
+                categoryLabel: "Arts & Music",
+                date: "December 18, 2026 • 7:00 PM",
+                location: "St. Margret Chapel Auditorium",
+                summary: "An evening of seasonal classics and orchestral arrangements performed by our Middle and Upper School ensembles.",
+                details: "Doors open at 6:30 PM. Admission is complimentary for all families, alumni, and community guests. Donations collected at the door support the St. Margret Music Scholarship Fund."
+            },
+            {
+                id: 4,
+                title: "Regional Varsity Basketball Invitational",
+                category: "athletics",
+                categoryLabel: "Athletics",
+                date: "January 15, 2027 • 4:00 PM",
+                location: "St. Margret Fieldhouse",
+                summary: "Cheer on the St. Margret Griffins as we host eight visiting schools for our annual winter tournament.",
+                details: "Tip-off begins at 4:00 PM Friday afternoon and continues through Saturday evening. Concessions hosted by the Parent Booster Club will be open throughout the weekend."
+            },
+            {
+                id: 5,
+                title: "Upper School Humanities & Debate Symposium",
+                category: "academic",
+                categoryLabel: "Academic",
+                date: "January 28, 2027 • 9:00 AM",
+                location: "Founders Library",
+                summary: "Grade 11 and 12 scholars present original historical research papers and participate in moderated public policy debates.",
+                details: "Parents and community members are welcome to attend the morning keynote and afternoon round-table discussions led by our Senior Capstone students."
+            },
+            {
+                id: 6,
+                title: "Spring Semester Application Priority Deadline",
+                category: "community",
+                categoryLabel: "Admissions",
+                date: "February 1, 2027 • 5:00 PM",
+                location: "Admissions Office / Online Portal",
+                summary: "Final date for priority consideration and merit scholarship applications for the upcoming academic term.",
+                details: "Ensure all transcripts, teacher recommendations, and family interview requests are submitted by 5:00 PM. Contact admissions@stmargretschool.edu if you need assistance."
+            }
+        ];
+
+        function filterEvents(category) {
+            // Update filter button styles
+            document.querySelectorAll('.event-filter-btn').forEach(btn => {
+                btn.className = "event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+            });
+            document.getElementById(`filter-${category}`).className = "event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-navy-900 text-white transition";
+
+            const filtered = category === 'all' ? schoolEvents : schoolEvents.filter(e => e.category === category);
+            const grid = document.getElementById('events-grid');
+
+            grid.innerHTML = filtered.map(ev => `
+                <article class="bg-slate-50 rounded-2xl border border-slate-200 p-6 flex flex-col justify-between hover:shadow-lg hover:border-navy-800/30 transition group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-navy-900/10 text-navy-900">${ev.categoryLabel}</span>
+                            <span class="text-xs text-slate-500 font-medium"><i class="fa-regular fa-calendar mr-1 text-gold-600"></i>${ev.date.split('•')[0]}</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-bold text-navy-950 group-hover:text-navy-800 transition">${ev.title}</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">${ev.summary}</p>
+                    </div>
+                    <div class="pt-5 mt-5 border-t border-slate-200/80 flex items-center justify-between">
+                        <span class="text-[11px] text-slate-500 truncate max-w-[60%]"><i class="fa-solid fa-location-dot mr-1 text-slate-400"></i>${ev.location}</span>
+                        <button onclick="openEventModal(${ev.id})" class="text-xs font-bold text-navy-900 hover:text-gold-600 flex items-center space-x-1 transition">
+                            <span>Details</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // --- Modal Controls ---
+        function openEventModal(id) {
+            const ev = schoolEvents.find(item => item.id === id);
+            if (!ev) return;
+            document.getElementById('modal-event-badge').innerText = ev.categoryLabel;
+            document.getElementById('modal-event-title').innerText = ev.title;
+            document.getElementById('modal-event-date').innerText = ev.date;
+            document.getElementById('modal-event-location').innerText = ev.location;
+            document.getElementById('modal-event-desc').innerText = ev.details;
+
+            const modal = document.getElementById('event-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeEventModal() {
+            const modal = document.getElementById('event-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function openTourModal() {
+            document.getElementById('tour-confirm-msg').classList.add('hidden');
+            const modal = document.getElementById('tour-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeTourModal() {
+            const modal = document.getElementById('tour-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleTourSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('tour-name').value.trim();
+            const day = document.getElementById('tour-day').value;
+            const msgBox = document.getElementById('tour-confirm-msg');
+            msgBox.innerText = `Thank you, ${name}! Your campus tour request for ${day} has been received. We look forward to welcoming your family.`;
+            msgBox.classList.remove('hidden');
+            e.target.reset();
+        }
+
+        // --- Mobile Menu Toggle ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // --- Contact & Inquiry Form Validation ---
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('parentName');
+            const emailInput = document.getElementById('emailAddress');
+            const msgInput = document.getElementById('inquiryMessage');
+            const grade = document.getElementById('gradeInterest').value;
+
+            let isValid = true;
+
+            // Validate Name
+            if (!nameInput.value.trim()) {
+                document.getElementById('err-parentName').classList.remove('hidden');
+                isValid = false;
+            } else {
+                document.getElementById('err-parentName').classList.add('hidden');
+            }
+
+            // Validate Email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+                document.getElementById('err-emailAddress').classList.remove('hidden');
+                isValid = false;
+            } else {
+                document.getElementById('err-emailAddress').classList.add('hidden');
+            }
+
+            // Validate Message
+            if (!msgInput.value.trim()) {
+                document.getElementById('err-inquiryMessage').classList.remove('hidden');
+                isValid = false;
+            } else {
+                document.getElementById('err-inquiryMessage').classList.add('hidden');
+            }
+
+            if (!isValid) return;
+
+            // Display confirmation banner
+            const banner = document.getElementById('form-success-banner');
+            const bannerText = document.getElementById('form-success-text');
+            bannerText.innerText = `We have logged your inquiry for ${grade} from ${nameInput.value.trim()}. A confirmation copy has been sent to ${emailInput.value.trim()}.`;
+            banner.classList.remove('hidden');
+
+            // Reset form fields
+            e.target.reset();
+        }
+
+        // Initialize interactive sections on load
+        window.addEventListener('DOMContentLoaded', () => {
+            selectDivision('primary');
+            filterEvents('all');
+            renderGradeTabs();
+            renderYearbook();
+        });
+    </script>
+</body>
+</html>
